@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title><b>Weather Dashboard</b></title>
+    <title>Weather Dashboard</title>
 
     <link rel="stylesheet" href="../reset-File/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -23,24 +23,24 @@
                         <input id="cityInput" class="form-control mr-sm-2" type="search" aria-label="Search">
                         <button id="citybtn1" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
-                    <div class="container cityText">
-                        <ul>
-                            <li><button id="citybtn">Austin</button></li>  
-                        </ul>
+                    <div class="container">
+                        <div id="citySearchedBtns">
+                            <!-- <button id="citybtn"></button></li> -->
+                        </div>
                     </div>
                 </div>    
             </div>
             <div class="col-lg-8">
                 <div class="card">
-                    <div id="weatherInfo" >
-                        <!-- <h1 id="cityDate"></h1>
-                        <ul>
+                    WeatherInfo
+                        
+                        <ul class="ul" id="weatherInfo">
+                            <li id="cityDate"><h1>Austin</h1>
                             <li id="temperature">Temperature:</li>
                             <li id="humidity">Humidity:</li>
                             <li id="windSpeed">Wind Speed:</li>
                             <li id="uvIndex">UV Index:</li>
-                        </ul> -->
-                    </div>
+                        </ul>
                 </div>
                 <div class="container">
                     <div class="imagesAPI">
@@ -51,7 +51,8 @@
         </div>
     </div>
 
-<script src="./assets/main.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/main.js"></script>
     
 </body>
 </html>
