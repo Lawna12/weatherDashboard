@@ -47,11 +47,19 @@ $('#citybtn1').on("click", function(event) {
             var windspeedLi = $('<li>').text("Wind Speed: " + response.wind.speed + " MPH")
             console.log(response.wind.speed)
             $('ul').children('ul').append(currentWeather)
+            currentWeather.empty()
             currentWeather.append(cityH1)
             currentWeather.append(tempLi)
             currentWeather.append(feels_likeLi)
             currentWeather.append(humidityLi)
             currentWeather.append(windspeedLi)
+
+            //Ajax to call 5 day images
+            $.ajax({
+                url : queryURL,
+                method : "GET"
+            }).then(function(response) {
+                console.log(response)
     })
 })
 
