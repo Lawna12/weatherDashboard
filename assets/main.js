@@ -5,24 +5,33 @@ function renderButtons() {
     $('#citySearchedBtns').empty()
 
     for (var i=0; i < cityArr.length; i++) {
-        $('#citySearchedBtns').prepend('<button>' + cityArr[i] + '</button><br/>')
+        var newCity = $('#citySearchedBtns').prepend('<button id="newCityBtn">' + cityArr[i] + '</button><br/>')
+        
     };
 }
+
 $('#clearCity').on('click', function() {
     cityArr = []
     localStorage.setItem('cityArr',JSON.stringify(cityArr))
 })
 
-
+//event listener for new city buttons
+$(document).on('click', "#newCityBtn", function() {
+    var newQuery = $(this).text()
+    console.log(newQuery)
+})
 renderButtons();
+
 
 $('#citybtn1').on("click", function(event) {
     event.preventDefault();
+    
    
-    var city = $('#cityInput').val();
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + ",us&units=imperial&APPID=f7c58c030fde0e2d088010052e6de221"
+    let city = $('#cityInput').val();
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + ",us&units=imperial&APPID=f7c58c030fde0e2d088010052e6de221"
     console.log(city)
     console.log(queryURL)
+
     
     //Ajax call for search button and prepend list
     cityArr.push(city)
@@ -53,14 +62,34 @@ $('#citybtn1').on("click", function(event) {
             currentWeather.append(feels_likeLi)
             currentWeather.append(humidityLi)
             currentWeather.append(windspeedLi)
-
-            //Ajax to call 5 day images
-            $.ajax({
-                url : queryURL,
-                method : "GET"
-            }).then(function(response) {
-                console.log(response)
-    })
+        })
 })
 
 
+$('#citybtn1').on("click", function(event) {
+    event.preventDefault();
+
+    var city = $('#cityInput').val();
+    var queryURL = ""
+    console.log(city)
+
+
+//Ajax call to append images
+$.ajax({
+  url : queryURL,
+  method : "GET"      
+}).then(function(response) {
+    var img1 = "https://www.alscofirstaid.com.au/wp-content/uploads/2014/01/placeholder-150x150.png"
+    var img2 = "https://www.alscofirstaid.com.au/wp-content/uploads/2014/01/placeholder-150x150.png"
+    var img3 = "https://www.alscofirstaid.com.au/wp-content/uploads/2014/01/placeholder-150x150.png"
+    var img4 = "https://www.alscofirstaid.com.au/wp-content/uploads/2014/01/placeholder-150x150.png"
+    var img5 = "https://www.alscofirstaid.com.au/wp-content/uploads/2014/01/placeholder-150x150.png"
+    var image1 = $('#image1').add('src', img1)
+    console.log(img1)
+    console.log(image1)
+
+})
+
+})
+
+    
